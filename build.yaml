@@ -18,5 +18,5 @@
 #
 ---
 include:
-  - board: adv360pro_left
-  - board: adv360pro_right
+  - board: ergo_s1_oe_left
+  - board: ergo_s1_oe_right
