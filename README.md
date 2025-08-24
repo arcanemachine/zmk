@@ -14,10 +14,12 @@ To create a custom layout and build your own firmware:
 
 > NOTE: If you install the Dockerized version, ensure that you are running the following commands from the Devcontainers CLI terminal that is running inside the container.
 
+> TIP: You can add custom config rules by editing `app/boards/shields/ergo_s1_oe/ergo_s1_oe.conf` before building the firmware. The `-DZMK_CONFIG=/workspaces/zmk/app/boards/shields/ergo_s1_oe` flag ensures that the config is loaded from `app/boards/shields/ergo_s1_oe/` (NOTE: This is not the most idiomatic way to do this. You *should* put custom config in your `zmk-config` repo, then create the `zmk-config` Docker volume with the correct path... but this is easier to work with if you just need to tweak a config value or two.)
+
   - Once you have installed your ZMK development environment, run the following commands to build the custom firmware for each side of the keyboard:
     - Navigate to the `app` directory: `cd app`
-    - Build the firmware for the left side: `west build -d build/left -p -b nice_nano -- -DSHIELD=ergo_s1_oe_left`
-    - Build the firmware for the right side: `west build -d build/right -p -b nice_nano -- -DSHIELD=ergo_s1_oe_right`
+    - Build the firmware for the left side: `west build -d build/left -p -b nice_nano -- -DSHIELD=ergo_s1_oe_left -DZMK_CONFIG=/workspaces/zmk/app/boards/shields/ergo_s1_oe`
+    - Build the firmware for the right side: `west build -d build/right -p -b nice_nano -- -DSHIELD=ergo_s1_oe_right -DZMK_CONFIG=/workspaces/zmk/app/boards/shields/ergo_s1_oe`
     - (If using Docker) Move the files to a path that is outside the Docker volume:
       - `mv build/left/zephyr/zmk.uf2 ../ergo_s1_oe_left.uf2`
       - `mv build/right/zephyr/zmk.uf2 ../ergo_s1_oe_right.uf2`
