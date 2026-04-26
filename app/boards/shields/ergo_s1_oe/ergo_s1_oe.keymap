@@ -6,11 +6,22 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
 #define FN  1
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        RCtrl+RShift-Layer2 {
+            bindings = <&to 2>;
+            key-positions = <45 51>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -43,22 +54,22 @@
             //                                                         |      |         |      |
 
             bindings = <
-&trans        &kp F1   &kp F2   &kp F3   &kp F4           &kp F5                                                                         &trans     &trans        &trans   &trans      &trans        &trans
-&trans        &kp F6   &kp F7   &kp F8   &kp F9           &kp F10                                                                        &kp CARET  &kp N7        &kp N8   &kp N9      &kp PLUS      &trans
-&kp CAPSLOCK  &kp F11  &kp F12  &kp INS  &kp PRINTSCREEN  &trans                                                                         &kp EQUAL  &kp N4        &kp N5   &kp N6      &kp MINUS     &trans
-&mo 2         &trans   &trans   &trans   &trans           &trans           &kp LEFT_ALT  &trans    &kp C_MENU  &kp BACKSPACE             &trans     &kp N1        &kp N2   &kp N3      &kp ASTERISK  &trans
-              &trans   &trans   &trans   &trans                    &trans  &trans        &trans    &trans      &kp COLON      &kp MINUS             &kp NUMBER_0  &kp DOT  &kp RETURN  &kp SLASH
+&trans        &kp F1   &kp F2   &kp F3   &kp F4           &kp F5                                                                                 &trans     &trans        &trans   &trans      &trans        &trans
+&trans        &kp F6   &kp F7   &kp F8   &kp F9           &kp F10                                                                                &kp CARET  &kp N7        &kp N8   &kp N9      &kp PLUS      &trans
+&kp CAPSLOCK  &kp F11  &kp F12  &kp INS  &kp PRINTSCREEN  &trans                                                                                 &kp EQUAL  &kp N4        &kp N5   &kp N6      &kp MINUS     &trans
+&mo 2         &trans   &trans   &trans   &trans           &trans           &kp LEFT_ALT  &trans    &kp C_MENU  &kp RA(RC(SPACE))                 &trans     &kp N1        &kp N2   &kp N3      &kp ASTERISK  &trans
+              &trans   &trans   &trans   &trans                    &trans  &trans        &trans    &trans      &kp RA(LS(SPACE))  &kp LC(LS(V))             &kp NUMBER_0  &kp DOT  &kp RETURN  &kp SLASH
                                                                                          &trans    &trans
             >;
         };
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans     &trans     &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans          &trans  &trans     &trans     &trans     &trans  &trans
+        &trans  &trans  &trans  &trans          &trans  &trans  &trans    &trans  &trans  &trans          &trans     &trans     &trans     &trans
                                                                 &trans    &trans
             >;
         };
