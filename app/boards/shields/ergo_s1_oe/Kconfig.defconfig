@@ -8,11 +8,17 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
+config ZMK_USB
+    default y
+
 endif
 
 if SHIELD_ERGO_S1_OE_LEFT || SHIELD_ERGO_S1_OE_RIGHT
 
 config ZMK_SPLIT
+    default y
+
+config ZMK_BLE
     default y
 
 endif
