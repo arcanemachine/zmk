@@ -1,5 +1,9 @@
 # ZMK (For Use With the Ergo S-1 Keyboard)
 
+> [!WARNING]
+>
+> The firmware has recently been updated to work with ZMK version `0.4`. If the new firmware is giving you any trouble, please [open an issue](https://github.com/arcanemachine/zmk/issues)!
+
 ## Intro
 
 This repo is a fork of [ZMK](https://github.com/zmkfirmware/zmk) that allows you to build custom firmware for your Ergo S-1 keyboard.
